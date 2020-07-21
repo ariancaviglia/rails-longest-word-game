@@ -1,0 +1,14 @@
+<h1> WORDS GAME </h1>
+<br>
+<tr>
+  <% @letters.each do |letter| %> 
+    <td><%= letter %></td>
+  <% end %>
+</tr>
+<br>
+<form action="score" method="POST">
+	<input type="text" name="word">
+	<input type="hidden" name="letters" value=<%= @letters.join("") %>>
+	<input type="submit" value="Ask!">
+	<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+</form>
